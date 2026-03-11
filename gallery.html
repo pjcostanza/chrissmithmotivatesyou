@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery | Chris Smith Motivates You</title>
+  <meta name="description" content="Gallery page for YourBrand — replace with a real SEO description.">
+
+  <link rel="canonical" href="https://chrissmithmotivatesyou.com/gallery.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gallery | YourBrand">
+  <meta property="og:description" content="Gallery page for YourBrand — replace this placeholder.">
+  <meta property="og:url" content="https://YOUR-USERNAME.github.io/gallery.html">
+  <meta property="og:image" content="https://YOUR-USERNAME.github.io/assets/img/og-image.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- NAVBAR (Gallery highlighted) -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html" aria-label="Chris Smith Motivates You home">
+ 	 <img class="brand-wordmark"
+     	 	src="assets/img/logo-wordmark.png"
+      	 	alt="Chris Smith Motivates You">
+	</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNav"
+              aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="primaryNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html" aria-current="page">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="section section--alt">
+    <div class="container">
+      <h1 class="mb-2">Gallery</h1>
+      <p class="text-muted mb-0">Click any image to open the lightbox modal.</p>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <!-- Gallery grid -->
+      <div class="row g-4">
+        <!-- Repeat these blocks as needed -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="gallery-thumb" data-lightbox data-img="assets/img/gallery-1.jpg" data-caption="Gallery caption 1">
+            <img src="assets/img/gallery-1.jpg" alt="Gallery placeholder 1">
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="gallery-thumb" data-lightbox data-img="assets/img/gallery-2.jpg" data-caption="Gallery caption 2">
+            <img src="assets/img/gallery-2.jpg" alt="Gallery placeholder 2">
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="gallery-thumb" data-lightbox data-img="assets/img/gallery-3.jpg" data-caption="Gallery caption 3">
+            <img src="assets/img/gallery-3.jpg" alt="Gallery placeholder 3">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Lightbox Modal (same as index) -->
+    <div class="modal fade" id="lightboxModal" tabindex="-1" aria-labelledby="lightboxTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title h5" id="lightboxTitle">Image Preview</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close preview"></button>
+          </div>
+          <div class="modal-body">
+            <img id="lightboxImage" src="" class="img-fluid rounded-3" alt="Expanded preview">
+            <p id="lightboxCaption" class="text-muted mt-3 mb-0">Caption</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="pt-5 pb-4">
+    <div class="container">
+      <div class="small text-white-50">
+        © <span data-year></span> YourBrand • Footer placeholders
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

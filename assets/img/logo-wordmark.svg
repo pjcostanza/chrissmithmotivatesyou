@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 980 140"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Chris Smith Motivates You</title>
+  <desc id="desc">Wordmark logo for Chris Smith Motivates You</desc>
+
+  <!-- ===== Brand Colors ===== -->
+  <!-- Navy: #0B1F3B -->
+  <!-- Gold: #C8A45D -->
+
+  <style>
+    .brand-primary {
+      fill: #0B1F3B;
+      font-family: "Poppins", "Montserrat", "Segoe UI", Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-secondary {
+      fill: #0B1F3B;
+      font-family: "Poppins", "Montserrat", "Segoe UI", Arial, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.4px;
+    }
+
+    .brand-accent {
+      fill: #C8A45D;
+    }
+  </style>
+
+  <!-- ===== Main Name ===== -->
+  <text
+    x="10"
+    y="78"
+    font-size="64"
+    class="brand-primary"
+  >
+    Chris Smith
+  </text>
+
+  <!-- ===== Accent Dot ===== -->
+  <circle
+    cx="515"
+    cy="60"
+    r="5"
+    class="brand-accent"
+  />
+
+  <!-- ===== Tagline ===== -->
+  <text
+    x="530"
+    y="78"
+    font-size="36"
+    class="brand-secondary"
+  >
+    Motivates You
+  </text>
+
+  <!-- ===== Underline Accent ===== -->
+  <rect
+    x="530"
+    y="92"
+    width="310"
+    height="4"
+    rx="2"
+    class="brand-accent"
+  />
+</svg>

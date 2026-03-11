@@ -1,0 +1,271 @@
+/* ==========================================================================
+   Premium Bootstrap Starter (Dreamweaver-friendly)
+   File: assets/css/styles.css
+   Purpose: Brand styling + layout helpers + section alternation
+   ========================================================================== */
+
+/* ------------------------------
+   0) Brand variables (EDIT HERE)
+   ------------------------------ */
+:root{
+  --brand-navy: #0B1F3B;
+  --brand-navy-2: #0A2447;
+  --brand-gold: #C8A45D;
+  --brand-cream: #F7F3EA;
+  --brand-ink: #0E1525;
+  --brand-muted: #5B667A;
+
+  /* Navbar height (used for body padding so fixed-top doesn't overlap content) */
+  --nav-height: 76px;
+
+  /* Global radius/shadows */
+  --radius-lg: 18px;
+  --shadow-soft: 0 10px 30px rgba(11,31,59,.12);
+}
+
+/* ------------------------------
+   1) Base / Typography
+   ------------------------------ */
+html { scroll-behavior: smooth; }
+
+body{
+  /* Fixed-top nav requires top padding so content doesn't slide under it */
+  padding-top: var(--nav-height); /* Bootstrap fixed navbar pattern */ 
+  color: var(--brand-ink);
+  background: #fff;
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+h1,h2,h3,h4,h5{
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  letter-spacing: 0.2px;
+}
+
+a{ color: var(--brand-navy); }
+a:hover{ color: var(--brand-navy-2); }
+
+/* ------------------------------
+   2) Navbar styling
+   ------------------------------ */
+.navbar{
+  min-height: var(--nav-height);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 18px rgba(11,31,59,.08);
+}
+
+.navbar-brand img{
+  height: 34px; /* EDIT if needed */
+  width: auto;
+}
+
+.nav-link{
+  font-weight: 500;
+}
+
+/* aria-current highlighting per page */
+.nav-link[aria-current="page"]{
+  color: var(--brand-gold) !important;
+  position: relative;
+}
+.nav-link[aria-current="page"]::after{
+  content:"";
+  position:absolute;
+  left:.5rem;
+  right:.5rem;
+  bottom:.25rem;
+  height:2px;
+  background: var(--brand-gold);
+  border-radius:2px;
+}
+
+/* ==========================================================================
+   Brand Wordmark Utility
+   Class: .brand-wordmark
+   Purpose: Fine-tune logo sizing everywhere from one place.
+   How to use:
+     <img class="brand-wordmark" src="assets/img/logo-wordmark.png" alt="Chris Smith Motivates You">
+   ========================================================================== */
+
+:root{
+  /* EDIT THIS ONE VALUE to scale the logo globally */
+  --wordmark-height: 34px; /* default (desktop) */
+}
+
+/* Apply to the logo image inside the navbar brand */
+.brand-wordmark{
+  height: var(--wordmark-height);
+  width: auto;              /* prevents distortion */
+  max-width: 100%;          /* prevents overflow */
+  display: block;           /* removes baseline whitespace */
+  object-fit: contain;      /* keeps the image contained if constrained */
+}
+
+/* If you ever use an SVG wordmark, this helps keep it crisp */
+.brand-wordmark svg{
+  height: var(--wordmark-height);
+  width: auto;
+}
+
+/* Responsive tuning (optional but helpful) */
+@media (max-width: 991.98px){
+  :root{ --wordmark-height: 32px; } /* slightly smaller on tablets */
+}
+
+@media (max-width: 575.98px){
+  :root{ --wordmark-height: 30px; } /* smaller on phones */
+}
+
+/* ------------------------------
+   3) Section helpers (alternating)
+   ------------------------------ */
+.section{
+  padding: 4.5rem 0;
+}
+.section--alt{
+  background: linear-gradient(180deg, var(--brand-cream), #ffffff);
+}
+.section--brand{
+  background: linear-gradient(180deg, var(--brand-navy), var(--brand-navy-2));
+  color: #fff;
+}
+.section--brand a{ color: #fff; text-decoration: underline; }
+
+/* Clear visual delineation on mobile */
+.section + .section{
+  border-top: 1px solid rgba(11,31,59,.08);
+}
+
+/* ------------------------------
+   4) Buttons / cards
+   ------------------------------ */
+.btn-brand{
+  background: var(--brand-gold);
+  border-color: var(--brand-gold);
+  color: #1b1b1b;
+  font-weight: 600;
+  box-shadow: var(--shadow-soft);
+}
+.btn-brand:hover{
+  background: #b7924c;
+  border-color: #b7924c;
+}
+
+.card-premium{
+  border: 0;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ------------------------------
+   5) Hero carousel (full viewport)
+   ------------------------------ */
+.hero{
+  /* Full height minus navbar, so the carousel fills the screen nicely */
+  min-height: calc(100vh - var(--nav-height));
+}
+
+.hero .carousel,
+.hero .carousel-inner,
+.hero .carousel-item{
+  min-height: calc(100vh - var(--nav-height));
+}
+
+.hero .carousel-item{
+  background: #111;
+  position: relative;
+}
+
+.hero .hero-img{
+  width: 100%;
+  height: calc(100vh - var(--nav-height));
+  object-fit: cover;
+  filter: brightness(0.72);
+}
+
+.hero .carousel-caption{
+  text-align: left;
+  bottom: 18%;
+}
+
+.hero .carousel-caption .badge{
+  background: rgba(200,164,93,.95);
+  color: #111;
+}
+
+.hero .carousel-caption h1{
+  font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+.hero .carousel-caption p{
+  max-width: 46rem;
+  font-size: 1.05rem;
+}
+
+/* ------------------------------
+   6) Gallery thumbs
+   ------------------------------ */
+.gallery-thumb{
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+}
+.gallery-thumb img{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform .25s ease;
+}
+.gallery-thumb:hover img{
+  transform: scale(1.03);
+}
+
+/* ------------------------------
+   7) Quotes + Reviews carousels
+   ------------------------------ */
+.quote-card{
+  border-left: 4px solid var(--brand-gold);
+  padding-left: 1rem;
+}
+.review-stars{
+  color: var(--brand-gold);
+}
+
+/* ------------------------------
+   8) Footer
+   ------------------------------ */
+footer{
+  background: #071427;
+  color: rgba(255,255,255,.9);
+}
+footer a{ color: rgba(255,255,255,.9); }
+footer a:hover{ color: var(--brand-gold); }
+
+/* Social icons */
+.social a{
+  display:inline-flex;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  align-items:center;
+  justify-content:center;
+  background: rgba(255,255,255,.08);
+  margin-right: .5rem;
+  transition: all .2s ease;
+}
+.social a:hover{
+  background: rgba(200,164,93,.18);
+  transform: translateY(-2px);
+}
+
+/* ------------------------------
+   9) Utility: hide placeholder blocks later
+   ------------------------------ */
+/* Add class "is-placeholder" to any block you may remove later */
+.is-placeholder{
+  opacity: .9;
+}
+/* Add class "is-hidden" to temporarily hide without deleting */
+.is-hidden{
+  display: none !important;
+}
