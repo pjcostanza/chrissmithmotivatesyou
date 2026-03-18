@@ -175,6 +175,12 @@ a:hover{ color: var(--brand-navy-2); }
   position: relative;
 }
 
+/* ✅ Required when using <picture> */
+.hero picture{
+  display: block;
+  height: 100%;
+}
+
 .hero .hero-img{
   width: 100%;
   height: calc(100vh - var(--nav-height));
@@ -200,6 +206,22 @@ a:hover{ color: var(--brand-navy-2); }
   max-width: 46rem;
   font-size: 1.05rem;
 }
+
+/* ------------------------------
+   Hero carousel — mobile polish
+   ------------------------------ */
+@media (max-width: 767.98px) {
+
+  .hero .carousel-caption{
+    bottom: 12%;
+  }
+
+  .hero .hero-img{
+    object-position: 50% 30%;
+  }
+
+}
+
 
 /* ------------------------------
    6) Gallery thumbs
