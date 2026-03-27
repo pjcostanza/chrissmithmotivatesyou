@@ -55,48 +55,107 @@
     </div>
   </header>
 
-  <main class="section">
-    <div class="container">
-      <!-- Gallery grid -->
-      <div class="row g-4">
-        <!-- Repeat these blocks as needed -->
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="gallery-thumb" data-lightbox data-img="assets/img/gallery-1.jpg" data-caption="Gallery caption 1">
-            <img src="assets/img/gallery-1.jpg" alt="Gallery placeholder 1">
-          </div>
-        </div>
+<main class="section">
+  <div class="container">
+    <!-- Gallery grid -->
+    <div class="row g-4">
 
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="gallery-thumb" data-lightbox data-img="assets/img/gallery-2.jpg" data-caption="Gallery caption 2">
-            <img src="assets/img/gallery-2.jpg" alt="Gallery placeholder 2">
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="gallery-thumb" data-lightbox data-img="assets/img/gallery-3.jpg" data-caption="Gallery caption 3">
-            <img src="assets/img/gallery-3.jpg" alt="Gallery placeholder 3">
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Lightbox Modal (same as index) -->
-    <div class="modal fade" id="lightboxModal" tabindex="-1" aria-labelledby="lightboxTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title h5" id="lightboxTitle">Image Preview</h3>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close preview"></button>
-          </div>
-          <div class="modal-body">
-            <img id="lightboxImage" src="" class="img-fluid rounded-3" alt="Expanded preview">
-            <p id="lightboxCaption" class="text-muted mt-3 mb-0">Caption</p>
-          </div>
+      <!-- ROW 1 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="gallery-thumb" data-lightbox data-img="assets/img/gallery-1.jpg" data-caption="Chris's Mom at the hospital soon after the tragedy">
+          <img src="assets/img/gallery-1.jpeg" alt="Chris's Mom at the hospital soon after the tragedy">
         </div>
       </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="gallery-thumb" data-lightbox data-img="assets/img/gallery-2.jpg" data-caption="My Fatal First Date covers">
+          <img src="assets/img/gallery-2.jpeg" alt="My Fatal First Date covers">
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="gallery-thumb" data-lightbox data-img="assets/img/gallery-3.jpg" data-caption="Public speaking engagement">
+          <img src="assets/img/gallery-3.jpeg" alt="Public speaking engagement">
+        </div>
+      </div>
+
+      <!-- ROW 2 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="gallery-thumb" data-lightbox data-img="assets/img/gallery-4.jpg" data-caption="Keynote speaking event">
+          <img src="assets/img/gallery-4.jpeg" alt="Keynote speaking event">
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="gallery-thumb" data-lightbox data-img="assets/img/gallery-5.jpg" data-caption="Book signing event">
+          <img src="assets/img/gallery-5.jpeg" alt="Book signing event">
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="gallery-thumb" data-lightbox data-img="assets/img/gallery-6.jpg" data-caption="Interview or media appearance">
+          <img src="assets/img/gallery-6.jpeg" alt="Interview or media appearance">
+        </div>
+      </div>
+
+      <!-- ROW 3 -->
+<div class="col-12 col-md-6 col-lg-4">
+  <div class="gallery-thumb" data-lightbox data-img="assets/img/gallery-7.jpg" data-caption="Speaking to students">
+    <img src="assets/img/gallery-7.jpeg" alt="Speaking to students">
+  </div>
+</div>
+
+<!-- VIDEO: CBS 48 Hours (YouTube) -->
+<div class="col-12 col-md-6 col-lg-4">
+  <div class="gallery-thumb position-relative"
+       data-lightbox
+       data-type="video"
+       data-src="https://www.youtube.com/embed/sWhsWUI3cAk"
+       data-caption="CBS 48 Hours — Christopher J. Smith Story">
+
+    <img src="assets/img/video-thumb-48hours.jpg" alt="Watch: CBS 48 Hours — Christopher J. Smith Story">
+
+    <span class="position-absolute top-50 start-50 translate-middle text-white fs-1">
+      <i class="bi bi-play-circle-fill"></i>
+    </span>
+  </div>
+</div>
+
+<!-- VIDEO: Fox & Friends (Fox embed) -->
+<div class="col-12 col-md-6 col-lg-4">
+  <div class="gallery-thumb position-relative"
+       data-lightbox
+       data-type="video"
+       data-src="https://video.foxnews.com/v/embed.html?video_id=6385406474112"
+       data-caption="Fox & Friends Morning Show Interview">
+
+    <img src="assets/img/video-thumb-foxfriends.jpg" alt="Watch: Fox & Friends Morning Show Interview">
+
+    <span class="position-absolute top-50 start-50 translate-middle text-white fs-1">
+      <i class="bi bi-play-circle-fill"></i>
+    </span>
+  </div>
+</div>
     </div>
-  </main>
+  </div>
+
+ <div class="modal-body">
+  <!-- Image (default) -->
+  <img id="lightboxImage" src="" class="img-fluid rounded-3" alt="Expanded preview">
+
+  <!-- Video (hidden until needed) -->
+  <div id="lightboxVideoWrap" class="ratio ratio-16x9 d-none rounded-3 overflow-hidden">
+    <iframe
+      id="lightboxVideo"
+      src=""
+      title="Video preview"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+
+  <p id="lightboxCaption" class="text-muted mt-3 mb-0">Caption</p>
+</div>
+</main>
 
 <!-- FOOTER -->
 <footer class="pt-5 pb-4">
@@ -149,5 +208,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.5/dist/index.bundle.min.js"></script>
 </body>
 </html>
