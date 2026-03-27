@@ -204,5 +204,30 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.5/dist/index.bundle.min.js"></script>
+	<!-- Lightbox Modal -->
+<div class="modal fade" id="lightboxModal" tabindex="-1" aria-labelledby="lightboxTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title h5" id="lightboxTitle">Image Preview</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close preview"></button>
+      </div>
+      <div class="modal-body">
+        <img id="lightboxImage" src="" class="img-fluid rounded-3" alt="Expanded preview">
+
+        <div id="lightboxVideoWrap" class="ratio ratio-16x9 d-none rounded-3 overflow-hidden">
+          <iframe
+            id="lightboxVideo"
+            src=""
+            title="Video preview"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+
+        <p id="lightboxCaption" class="text-muted mt-3 mb-0">Caption</p>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
