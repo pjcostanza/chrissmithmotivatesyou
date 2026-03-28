@@ -153,14 +153,15 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
-  <script>
-  window.addEventListener("pageshow", function (event) {
-    if (event.persisted) {
-      const form = document.getElementById("contactFormSecondary");
-      if (form) {
-        form.reset();
-      }
-    }
+ <script>
+  const form = document.getElementById("contactFormSecondary");
+
+  window.addEventListener("pagehide", function () {
+    if (form) form.reset();
+  });
+
+  window.addEventListener("pageshow", function () {
+    if (form) form.reset();
   });
 </script>
 	
