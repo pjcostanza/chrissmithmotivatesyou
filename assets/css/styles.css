@@ -195,3 +195,14 @@ footer a:hover{ color: var(--brand-gold); }
    ------------------------------ */
 .is-placeholder{ opacity: .9; }
 .is-hidden{ display: none !important; }
+
+/* Keeps the quote area stable once JS sets min-height */
+.quote-carousel-wrap .carousel-inner {
+  min-height: var(--quote-max-h, auto);
+}
+
+/* Optional: smoother feel (no layout shift, just fades) */
+.quote-carousel-wrap .carousel-item {
+  transition: transform 0.6s ease;
+}
+``
