@@ -205,4 +205,11 @@ footer a:hover{ color: var(--brand-gold); }
 .quote-carousel-wrap .carousel-item {
   transition: transform 0.6s ease;
 }
-``
+
+/* =====================================
+   Reviews Carousel (fixed height)
+   - Height is set dynamically via JS
+   ===================================== */
+.review-carousel-wrap .carousel-inner {
+  min-height: var(--review-max-h, auto);
+}

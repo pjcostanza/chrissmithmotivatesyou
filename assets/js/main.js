@@ -213,3 +213,113 @@ if (modalEl) {
   // announce first slide on load
   announceActiveQuote();
 })();
+
+/* -----------------------------------------
+   Reviews carousel enhancements:
+   - Lock height to tallest slide (prevents bounce)
+   - Pause on hover (desktop) + focus (keyboard)
+   - Pause on touch/hold (mobile) but keep swipe
+   - ARIA live announcements on slide change
+----------------------------------------- */
+(() => {
+  const carouselEl = document.getElementById("reviewCarousel");
+  if (!carouselEl || !window.bootstrap) return;
+
+  const carousel = bootstrap.Carousel.getOrCreateInstance(carouselEl);
+  const inner = carouselEl.querySelector(".carousel-inner");
+  const items = Array.from(carouselEl.querySelectorAll(".carousel-item"));
+  const live = document.getElementById("reviewLive");
+
+  const lockCarouselHeight = () => {
+    if (!inner || items.length === 0) return;
+
+    // remember active index
+    const activeIndex = items.findIndex(i => i.classList.contains("active"));
+
+    let maxH = 0;
+
+    // measure each slide without affecting layout
+    items.forEach(item => {
+      const prevDisplay = item.style.display;
+      const prevPos = item.style.position;
+      const prevVis = item.style.visibility;
+      const prevTrans = item.style.transform;
+
+      item.style.display = "block";
+      item.style.position = "absolute";
+      item.style.visibility = "hidden";
+      item.style.transform = "none";
+
+      maxH = Math.max(maxH, item.scrollHeight);
+
+      item.style.display = prevDisplay;
+      item.style.position = prevPos;
+      item.style.visibility = prevVis;
+      item.style.transform = prevTrans;
+    });
+
+    inner.style.setProperty("--review-max-h", `${maxH}px`);
+    inner.style.minHeight = `${maxH}px`;
+
+    // restore active state (safety)
+    items.forEach((i, idx) => i.classList.toggle("active", idx === activeIndex));
+  };
+
+  const debounce = (fn, ms = 150) => {
+    let t;
+    return (...args) => {
+      clearTimeout(t);
+      t = setTimeout(() => fn(...args), ms);
+    };
+  };
+
+  window.addEventListener("load", lockCarouselHeight);
+  window.addEventListener("resize", debounce(lockCarouselHeight, 200));
+  lockCarouselHeight();
+
+  // Pause on keyboard focus for accessibility (in addition to hover)
+  carouselEl.addEventListener("focusin", () => carousel.pause());
+  carouselEl.addEventListener("focusout", () => carousel.cycle());
+
+  // Pause on touch/hold (mobile) but keep swipe
+  let touchTimer = null;
+  let touched = false;
+
+  carouselEl.addEventListener("touchstart", () => {
+    touched = true;
+    carousel.pause();
+    touchTimer = setTimeout(() => {}, 50);
+  }, { passive: true });
+
+  carouselEl.addEventListener("touchend", () => {
+    if (touchTimer) clearTimeout(touchTimer);
+    setTimeout(() => {
+      if (touched) carousel.cycle();
+      touched = false;
+    }, 600);
+  });
+
+  carouselEl.addEventListener("touchcancel", () => {
+    if (touchTimer) clearTimeout(touchTimer);
+    touched = false;
+    carousel.cycle();
+  });
+
+  // ARIA live announcements (polite, atomic)
+  const announceActiveReview = () => {
+    if (!live) return;
+    const active = carouselEl.querySelector(".carousel-item.active");
+    if (!active) return;
+
+    const stars = active.querySelector(".review-stars")?.getAttribute("aria-label") || "";
+    const text = active.querySelector("p")?.innerText?.trim() || "Review";
+    const who = active.querySelector(".small.text-muted")?.innerText?.trim() || "";
+
+    const short = text.length > 220 ? text.slice(0, 220).trim() + "…" : text;
+
+    live.textContent = [stars, short, who].filter(Boolean).join(" ");
+  };
+
+  carouselEl.addEventListener("slid.bs.carousel", announceActiveReview);
+  announceActiveReview();
+})();

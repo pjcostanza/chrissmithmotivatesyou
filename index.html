@@ -258,62 +258,98 @@
     </div>
   </section>
 
-  <!-- SECTION 3 (BRAND / NAVY) - QUOTES CAROUSEL -->
-  <section class="section section--brand" id="quotes">
-    <div class="container">
-      <div class="d-flex align-items-end justify-content-between flex-wrap gap-3 mb-4">
-        <div>
-          <h2 class="mb-1">In Their Words</h2>
-          <p class="mb-0 text-white-50">A Life Defined by Courage</p>
-        </div>
+ <!-- SECTION 3 (BRAND / NAVY) - QUOTES CAROUSEL -->
+<section class="section section--brand" id="quotes">
+  <div class="container">
+    <div class="d-flex align-items-end justify-content-between flex-wrap gap-3 mb-4">
+      <div>
+        <h2 class="mb-1">In Their Words</h2>
+        <p class="mb-0 text-white-50">A Life Defined by Courage</p>
       </div>
+    </div>
 
-      <div id="quoteCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500" aria-label="Inspirational quotes">
+    <!-- Live region for screen readers (announces slide changes) -->
+    <div id="quoteLive" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Height-stabilized wrapper -->
+    <div class="quote-carousel-wrap">
+      <div
+        id="quoteCarousel"
+        class="carousel slide"
+        data-bs-ride="carousel"
+        data-bs-interval="4500"
+        data-bs-pause="hover"
+        data-bs-touch="true"
+        aria-label="Inspirational quotes"
+        aria-roledescription="carousel"
+      >
         <div class="carousel-inner">
-          <div class="carousel-item active">
+
+          <div class="carousel-item active" role="group" aria-roledescription="slide" aria-label="Quote 1 of 5">
             <div class="card card-premium p-4">
               <blockquote class="mb-0 quote-card">
-                <p class="mb-2">“In a world that too often plays small or focuses on what’s wrong, Chris Smith embodies all that is right and how miracles still happen.  He is a walking miracle and will remind you to dream bigger, fight harder and tap into the limitless power within your life, too." <br><br>John O’Leary, Inspiration of the film Soul On Fire</p>
+                <p class="mb-2">
+                  “In a world that too often plays small or focuses on what’s wrong, Chris Smith embodies all that is right and how miracles still happen. He is a walking miracle and will remind you to dream bigger, fight harder and tap into the limitless power within your life, too."
+                  <br><br>
+                  John O’Leary, Inspiration of the film Soul On Fire
+                </p>
                 <footer class="small text-muted">— John O’Leary, Inspiration of the film Soul On Fire</footer>
               </blockquote>
             </div>
           </div>
 
-          <div class="carousel-item">
+          <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Quote 2 of 5">
             <div class="card card-premium p-4">
               <blockquote class="mb-0 quote-card">
-                <p class="mb-2">“I taught and coached Chris from 8th grade through high school. His determination and stubborn-like inner drive to never quit kept him alive through his horrific tragedy. Now, Chris inspires me and many others to never give up on anything you want to achieve in life. He is living proof of never, ever giving up.”<br><br>Bob Bunton - Legendary former head football coach at Parkway North High School in St. Louis, Missouri</p>
+                <p class="mb-2">
+                  “I taught and coached Chris from 8th grade through high school. His determination and stubborn-like inner drive to never quit kept him alive through his horrific tragedy. Now, Chris inspires me and many others to never give up on anything you want to achieve in life. He is living proof of never, ever giving up.”
+                  <br><br>
+                  Bob Bunton - Legendary former head football coach at Parkway North High School in St. Louis, Missouri
+                </p>
                 <footer class="small text-muted">— Bob Bunton</footer>
               </blockquote>
             </div>
           </div>
 
-          <div class="carousel-item">
+          <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Quote 3 of 5">
             <div class="card card-premium p-4">
               <blockquote class="mb-0 quote-card">
-                <p class="mb-2">“When it comes to overcoming impossible odds, Chris Smith is a beast. One fateful evening, evil tried to steal his life—a life rich with talent and opportunity. But God didn’t throw in the towel, and neither did Chris. As Chris’ pastor, I’ve had the blessing of watching a new life rise from the ashes—physically, mentally, and spiritually. Chris works hard every day to maximize the life God has given him. He has discovered his purpose: to inspire people to overcome the seemingly impossible odds in their lives. Chris’ story is a powerful reminder to never throw in the towel and to hold onto hope that the best is still to come.”<br><br>Mike Schreiner | C.O.G.P.O.W | Lead Pastor | Morning Star Church</p>
+                <p class="mb-2">
+                  “When it comes to overcoming impossible odds, Chris Smith is a beast. One fateful evening, evil tried to steal his life—a life rich with talent and opportunity. But God didn’t throw in the towel, and neither did Chris. As Chris’ pastor, I’ve had the blessing of watching a new life rise from the ashes—physically, mentally, and spiritually. Chris works hard every day to maximize the life God has given him. He has discovered his purpose: to inspire people to overcome the seemingly impossible odds in their lives. Chris’ story is a powerful reminder to never throw in the towel and to hold onto hope that the best is still to come.”
+                  <br><br>
+                  Mike Schreiner | C.O.G.P.O.W | Lead Pastor | Morning Star Church
+                </p>
                 <footer class="small text-muted">— Mike Schreiner | C.O.G.P.O.W | Lead Pastor | Morning Star Church</footer>
               </blockquote>
             </div>
           </div>
-			
-			<div class="carousel-item">
+
+          <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Quote 4 of 5">
             <div class="card card-premium p-4">
               <blockquote class="mb-0 quote-card">
-                <p class="mb-2">“Chris Smith is the most determined man I know. He survived being shot in the head point blank. But he did way more than "survive." Chris began intense therapy and reformed his band as its lead singer. He works out constantly and has regained a tremendous amount of function to his formerly paralyzed left side. A doctor told him he'd never walk again so every time I see him singing in his rock 'n roll band, I have to smile. Chris thrives and tells his story well. He's one of a kind.”<br><br>Paul LaRosa - CBS News | 48Hrs</p>
+                <p class="mb-2">
+                  “Chris Smith is the most determined man I know. He survived being shot in the head point blank. But he did way more than "survive." Chris began intense therapy and reformed his band as its lead singer. He works out constantly and has regained a tremendous amount of function to his formerly paralyzed left side. A doctor told him he'd never walk again so every time I see him singing in his rock 'n roll band, I have to smile. Chris thrives and tells his story well. He's one of a kind.”
+                  <br><br>
+                  Paul LaRosa - CBS News | 48Hrs
+                </p>
                 <footer class="small text-muted">— Paul LaRosa - CBS News | 48Hrs</footer>
               </blockquote>
             </div>
           </div>
-			
-			<div class="carousel-item">
+
+          <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Quote 5 of 5">
             <div class="card card-premium p-4">
               <blockquote class="mb-0 quote-card">
-                <p class="mb-2">“Chris Smith is one of a kind. Left for dead for many hours having been shot in the head by a stranger, Chris' life is a demonstration of God's power. Doctors aren’t sure why someone with a gunshot wound to the head would be able to sit up, let alone walk around, or sing in a band! To know Chris helps us to better understand the human spirit; resilient, tough and a lot of fun to hang out with. Chris is now living every day knowing that life is precious.  He is a great example of a never quit attitude, and I am proud to call him friend.”<br><br>Pastor Keith Scarborough | Morning Star Church</p>
+                <p class="mb-2">
+                  “Chris Smith is one of a kind. Left for dead for many hours having been shot in the head by a stranger, Chris' life is a demonstration of God's power. Doctors aren’t sure why someone with a gunshot wound to the head would be able to sit up, let alone walk around, or sing in a band! To know Chris helps us to better understand the human spirit; resilient, tough and a lot of fun to hang out with. Chris is now living every day knowing that life is precious. He is a great example of a never quit attitude, and I am proud to call him friend.”
+                  <br><br>
+                  Pastor Keith Scarborough | Morning Star Church
+                </p>
                 <footer class="small text-muted">— Pastor Keith Scarborough | Morning Star Church</footer>
               </blockquote>
             </div>
           </div>
+
         </div>
 
         <button class="carousel-control-prev" type="button" data-bs-target="#quoteCarousel" data-bs-slide="prev" aria-label="Previous quote">
@@ -322,10 +358,12 @@
         <button class="carousel-control-next" type="button" data-bs-target="#quoteCarousel" data-bs-slide="next" aria-label="Next quote">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </button>
+
       </div>
     </div>
-  </section>
-
+  </div>
+</section>
+	
   <!-- SECTION 4 (WHITE) - LIGHTBOX GALLERY -->
   <section class="section" id="lightbox">
     <div class="container">
@@ -378,14 +416,27 @@
   </section>
 
   <!-- SECTION 5 (ALT / CREAM) - REVIEWS -->
-  <section class="section section--alt" id="reviews">
-    <div class="container">
-      <h2 class="mb-3">Book Reviews - My Fatal First Date</h2>
+<section class="section section--alt" id="reviews">
+  <div class="container">
+    <h2 class="mb-3">Book Reviews - My Fatal First Date</h2>
 
-      <div id="reviewCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000" aria-label="Client reviews">
+    <!-- Live region for screen readers -->
+    <div id="reviewLive" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Height-stabilized wrapper -->
+    <div class="review-carousel-wrap">
+      <div id="reviewCarousel"
+           class="carousel slide"
+           data-bs-ride="carousel"
+           data-bs-interval="5000"
+           data-bs-pause="hover"
+           data-bs-touch="true"
+           aria-label="Book reviews"
+           aria-roledescription="carousel">
+
         <div class="carousel-inner">
 
-          <div class="carousel-item active">
+          <div class="carousel-item active" role="group" aria-roledescription="slide" aria-label="Review 1 of 3">
             <div class="card card-premium p-4">
               <div class="review-stars mb-2" aria-label="5 out of 5 stars">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -395,7 +446,7 @@
             </div>
           </div>
 
-          <div class="carousel-item">
+          <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Review 2 of 3">
             <div class="card card-premium p-4">
               <div class="review-stars mb-2" aria-label="5 out of 5 stars">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -404,8 +455,8 @@
               <div class="small text-muted">— Kenneth Meyers</div>
             </div>
           </div>
-			
-			<div class="carousel-item">
+
+          <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="Review 3 of 3">
             <div class="card card-premium p-4">
               <div class="review-stars mb-2" aria-label="5 out of 5 stars">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -423,9 +474,12 @@
         <button class="carousel-control-next" type="button" data-bs-target="#reviewCarousel" data-bs-slide="next" aria-label="Next review">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </button>
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
 	<!-- ==========================================================
        NEW SECTION (BRAND / SAME AS "IN THEIR WORDS") - CTA LINKS
