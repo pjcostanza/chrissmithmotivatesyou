@@ -213,3 +213,29 @@ footer a:hover{ color: var(--brand-gold); }
 .review-carousel-wrap .carousel-inner {
   min-height: var(--review-max-h, auto);
 }
+/* ==========================
+   Events page helpers
+   ========================== */
+.event-card {
+  position: relative;
+}
+
+.event-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:18px;
+  bottom:18px;
+  width:6px;
+  border-radius: 999px;
+  background: rgba(200,164,93,.95); /* brand gold */
+  opacity: .85;
+}
+
+@media (max-width: 575.98px){
+  .event-card::before{
+    top:14px;
+    bottom:14px;
+  }
+}
+..
