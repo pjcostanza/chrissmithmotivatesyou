@@ -323,3 +323,45 @@ if (modalEl) {
   carouselEl.addEventListener("slid.bs.carousel", announceActiveReview);
   announceActiveReview();
 })();
+/* -----------------------------------------
+   4) Events page: Acoustic / Full Band filter
+   - Looks for buttons with [data-filter]
+   - Shows/hides cards with .event-card + data-type
+----------------------------------------- */
+(() => {
+  "use strict";
+
+  // Only run on pages that actually have filters
+  const filterButtons = document.querySelectorAll("[data-filter]");
+  const cards = document.querySelectorAll(".event-card");
+  if (!filterButtons.length || !cards.length) return;
+
+  const setActive = (btn) => {
+    filterButtons.forEach(b => {
+      b.classList.remove("btn-dark");
+      b.classList.add("btn-outline-dark");
+    });
+    btn.classList.add("btn-dark");
+    btn.classList.remove("btn-outline-dark");
+  };
+
+  const applyFilter = (type) => {
+    cards.forEach(card => {
+      const t = (card.getAttribute("data-type") || "").toLowerCase().trim();
+      const show = (type === "all") || (t === type);
+      card.classList.toggle("is-hidden", !show);
+    });
+  };
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const type = (btn.getAttribute("data-filter") || "all").toLowerCase().trim();
+      setActive(btn);
+      applyFilter(type);
+    });
+  });
+
+  // Default state: All Shows
+  setActive(filterButtons[0]);
+  applyFilter("all");
+})();
