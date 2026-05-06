@@ -918,48 +918,5 @@ EVENTS LIST (2026)
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
 
-  <!-- Events filter (add inline OR move into assets/js/main.js) -->
-  <script>
-  (function(){
-    var buttons = document.querySelectorAll("[data-filter]");
-    var cards = document.querySelectorAll(".event-card");
-    if(!buttons.length || !cards.length) return;
-
-    function setActive(btn){
-      for (var i=0; i<buttons.length; i++){
-        buttons[i].classList.remove("btn-dark");
-        buttons[i].classList.add("btn-outline-dark");
-      }
-      btn.classList.add("btn-dark");
-      btn.classList.remove("btn-outline-dark");
-    }
-
-    function applyFilter(type){
-      for (var i=0; i<cards.length; i++){
-        var c = cards[i];
-        var t = (c.getAttribute("data-type") || "").toLowerCase().trim();
-        if(type === "all" || t === type){
-          c.classList.remove("is-hidden");
-        } else {
-          c.classList.add("is-hidden");
-        }
-      }
-    }
-
-    for (var i=0; i<buttons.length; i++){
-      (function(btn){
-        btn.addEventListener("click", function(){
-          var type = (btn.getAttribute("data-filter") || "all").toLowerCase().trim();
-          setActive(btn);
-          applyFilter(type);
-        });
-      })(buttons[i]);
-    }
-
-    setActive(buttons[0]);
-    applyFilter("all");
-  })();
-  </script>
-
 </body>
 </html>
