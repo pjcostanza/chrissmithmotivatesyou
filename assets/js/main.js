@@ -500,3 +500,39 @@
     }
   });
 })();
+
+/* -----------------------------------------
+   Map / Venue links (Google Maps)
+----------------------------------------- */
+(() => {
+  "use strict";
+
+  const buildMapUrl = (card) => {
+    const location = card.getAttribute("data-location") || "";
+
+    if (!location) return "";
+
+    // Encode for URL (spaces → +, commas handled)
+    const query = encodeURIComponent(location);
+
+    return "https://www.google.com/maps/search/?api=1&query=" + query;
+  };
+
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("[data-map-link]");
+    if (!link) return;
+
+    const card = link.closest(".event-card");
+    if (!card) return;
+
+    e.preventDefault();
+
+    const url = buildMapUrl(card);
+
+    if (url) {
+      window.open(url, "_blank", "noopener");
+    } else {
+      alert("Location not available.");
+    }
+  });
+})();
