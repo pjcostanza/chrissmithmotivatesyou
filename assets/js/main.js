@@ -365,3 +365,98 @@ if (modalEl) {
   setActive(filterButtons[0]);
   applyFilter("all");
 })();
+/* -----------------------------------------
+   Add to Calendar (.ics) for event cards
+   Buttons: [data-add-ics]
+   Cards: .event-card with data-title/data-start/data-end/data-location/data-description
+----------------------------------------- */
+(() => {
+  "use strict";
+
+  const buttons = document.querySelectorAll("[data-add-ics]");
+  if (!buttons.length) return;
+
+  const pad = (n) => (n < 10 ? "0" : "") + n;
+
+  // "YYYY-MM-DDTHH:MM" -> "YYYYMMDDTHHMM00"
+  // This creates a "floating" local-time ICS entry (works fine for most users).
+  const toIcsDate = (dt) => {
+    const parts = String(dt || "").split("T");
+    if (parts.length < 2) return "";
+    const d = parts[0].split("-");
+    const t = parts[1].split(":");
+    return `${d[0]}${d[1]}${d[2]}T${t[0]}${t[1]}00`;
+  };
+
+  const escapeText = (s) =>
+    String(s || "")
+      .replace(/\\/g, "\\\\")
+      .replace(/\n/g, "\\n")
+      .replace(/,/g, "\\,")
+      .replace(/;/g, "\\;");
+
+  const download = (filename, text) => {
+    const blob = new Blob([text], { type: "text/calendar;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const card = btn.closest(".event-card");
+      if (!card) return;
+
+      const title = card.getAttribute("data-title") || "Live Event";
+      const start = card.getAttribute("data-start") || "";
+      const end = card.getAttribute("data-end") || "";
+      const location = card.getAttribute("data-location") || "";
+      const description = card.getAttribute("data-description") || "";
+
+      if (!start || !end) {
+        alert("Missing data-start or data-end on this event.");
+        return;
+      }
+
+      const dtstamp = new Date();
+      const dtstampStr =
+        dtstamp.getUTCFullYear() +
+        pad(dtstamp.getUTCMonth() + 1) +
+        pad(dtstamp.getUTCDate()) +
+        "T" +
+        pad(dtstamp.getUTCHours()) +
+        pad(dtstamp.getUTCMinutes()) +
+        pad(dtstamp.getUTCSeconds()) +
+        "Z";
+
+      const uid = `new-${Date.now()}@chrissmithmotivatesyou.com`;
+
+      const ics =
+        "BEGIN:VCALENDAR\n" +
+        "VERSION:2.0\n" +
+        "PRODID:-//Chris Smith Motivates You//Events//EN\n" +
+        "CALSCALE:GREGORIAN\n" +
+        "METHOD:PUBLISH\n" +
+        "BEGIN:VEVENT\n" +
+        `UID:${uid}\n` +
+        `DTSTAMP:${dtstampStr}\n` +
+        `SUMMARY:${escapeText(title)}\n` +
+        `DTSTART:${toIcsDate(start)}\n` +
+        `DTEND:${toIcsDate(end)}\n` +
+        `LOCATION:${escapeText(location)}\n` +
+        `DESCRIPTION:${escapeText(description)}\n` +
+        "END:VEVENT\n" +
+        "END:VCALENDAR\n";
+
+      const safeName = title
+        .replace(/[^a-z0-9]+/gi, "-")
+        .replace(/(^-|-$)/g, "")
+        .toLowerCase();
+
+      download((safeName || "event") + ".ics", ics);
+    });
+  });
+})();
