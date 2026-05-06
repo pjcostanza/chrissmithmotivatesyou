@@ -515,7 +515,7 @@
     // Encode for URL (spaces → +, commas handled)
     const query = encodeURIComponent(location);
 
-    return "https://www.google.com/maps/search/?api=1&query=" + query;
+    return "https://www.google.com/maps/dir/?api=1&destination=" + query;
   };
 
   document.addEventListener("click", (e) => {
