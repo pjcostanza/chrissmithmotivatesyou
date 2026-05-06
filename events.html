@@ -960,43 +960,6 @@ EVENTS LIST (2026)
     applyFilter("all");
   })();
   </script>
-<script>
-(function(){
-  function toGoogleDates(dt){
-    const parts = String(dt).split("T");
-    const d = parts[0].split("-");
-    const t = parts[1].split(":");
-    return d[0] + d[1] + d[2] + "T" + t[0] + t[1] + "00";
-  }
 
-  function buildUrl(card){
-    const title = encodeURIComponent(card.getAttribute("data-title") || "Event");
-    const start = toGoogleDates(card.getAttribute("data-start"));
-    const end = toGoogleDates(card.getAttribute("data-end"));
-    const location = encodeURIComponent(card.getAttribute("data-location") || "");
-    const details = encodeURIComponent(card.getAttribute("data-description") || "");
-
-    return "https://calendar.google.com/calendar/render?action=TEMPLATE"
-      + "&text=" + title
-      + "&dates=" + start + "/" + end
-      + "&details=" + details
-      + "&location=" + location
-      + "&ctz=America/Chicago";
-  }
-
-  document.addEventListener("click", function(e){
-    const link = e.target.closest("[data-add-google]");
-    if(!link) return;
-
-    e.preventDefault();
-
-    const card = link.closest(".event-card");
-    if(!card) return;
-
-    const url = buildUrl(card);
-    window.open(url, "_blank");
-  });
-})();
-</script>
 </body>
 </html>
